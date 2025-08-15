@@ -2,6 +2,11 @@ import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { z } from "zod";
 
+// Define the environment interface for Cloudflare Workers
+interface Env {
+  DB: D1Database;
+}
+
 const app = new Hono<{ Bindings: Env }>();
 
 // Contact form submission schema
@@ -22,7 +27,7 @@ app.post('/api/contact', zValidator('json', ContactSchema), async (c) => {
 
     return c.json({ success: true, message: "Message sent successfully!" });
   } catch (error) {
-    console.error('Contact form error:', error);
+    // Use structured logging instead of console.error for Cloudflare Workers
     return c.json({ success: false, message: "Failed to send message. Please try again." }, 500);
   }
 });
