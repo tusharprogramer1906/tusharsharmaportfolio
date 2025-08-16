@@ -126,7 +126,7 @@ export default function About() {
                   <img
                     src="/profile.jpeg"
                     alt="Professional headshot"
-                    className="relative w-full h-100 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                    className="relative w-full h-96 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Overlay gradient */}
